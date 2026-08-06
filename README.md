@@ -139,3 +139,21 @@ identifies the person. Counting the former would show zero repeat customers.
 - Review scores are self-selected; 646 delivered orders have no review at all.
 
 ## Repository
+
+​```
+sql/     01_base_view · 02_q1 · 03_q2 · 04_q3 · 05_geography · 06_q4 · 07_monthly
+data/    9 raw CSVs (Git LFS)
+tableau/ 5 aggregate CSVs feeding the dashboard
+​```
+
+## How to run
+
+1. Create a PostgreSQL database named `olist`
+2. Add your password to `.env` as `PGPASSWORD=...`
+3. `pip install pandas sqlalchemy psycopg2-binary python-dotenv`
+4. `python load_to_postgres.py`
+5. Run `sql/01_base_view.sql`, then the numbered query files
+6. `python export_for_tableau.py`
+
+Data: [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+EOF
