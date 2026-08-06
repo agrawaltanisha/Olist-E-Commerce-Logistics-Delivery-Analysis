@@ -1,0 +1,11 @@
+-- Follow-up to Q3 null finding: WHERE does lateness live?
+-- RESULT (run 2026-08-06): geography, not sellers.
+--   SP: 40,494 orders,  8.7d lead time,  4.5% late, 4.25 review
+--   AL:    397 orders, 24.5d lead time, 21.4% late, 3.86 review
+--   Slow tail = North/Northeast (AL, PA, MA, SE, CE, PB, PI)
+--   Fast head = Southeast/South (SP, MG, PR, DF, SC) — where sellers cluster
+--   2.8x spread in lead time, ~5x spread in lateness rate.
+-- Explains why Q3 found no seller concentration: cause is the ROUTE, not the merchant.
+-- NOTE: review gap across states is only 0.39 pts vs 2.6 pts in Q1 —
+-- consistent with Q1: customers grade vs the PROMISE, and promises already
+-- stretch for distant states. Slow-but-expected does not anger customers.
