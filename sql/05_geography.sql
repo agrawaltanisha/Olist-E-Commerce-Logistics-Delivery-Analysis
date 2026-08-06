@@ -9,3 +9,12 @@
 -- NOTE: review gap across states is only 0.39 pts vs 2.6 pts in Q1 —
 -- consistent with Q1: customers grade vs the PROMISE, and promises already
 -- stretch for distant states. Slow-but-expected does not anger customers.
+
+-- PROMISE CALIBRATION BY STATE:
+--   promised lead time scales with distance: SP 19.8d -> RO 39.4d
+--   BUT avg_buffer_used is ~constant across all 23 states (-8.7 to -20.1, most ~-12)
+--   => Olist's estimator already accounts for distance AND adds a flat ~12-day cushion.
+-- CONCLUSION: the estimate is well-calibrated. The 6,534 late orders are not
+-- explained by the estimate, the seller, or the destination. They are operational
+-- exceptions (avg 33.9d vs 10.9d norm). Recommendation: exception detection —
+-- flag orders that go silent past day ~20 and intervene before the review lands.
