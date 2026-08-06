@@ -1,0 +1,12 @@
+-- Q4: Does late delivery cost repeat business?
+-- RESULT (run 2026-08-06): INCONCLUSIVE — directionally consistent, underpowered.
+--   first order on time: 86,993 customers, 2,639 repeat -> 3.03%
+--   first order late:     6,357 customers,   162 repeat -> 2.55%
+--   gap = 0.48pp (16% relative), BUT:
+--   95% CI half-widths: on-time +/-0.114pp, late +/-0.388pp -> intervals OVERLAP.
+--   Dose-response FAILS (non-monotonic):
+--     on time 3.04% | 1-7d late 2.35% | 8+d late 2.66%
+--   Severely-late customers repeat MORE than mildly-late ones — not a causal shape.
+-- Root cause: only ~3.4% of customers ever reorder (3,345 of 96,096) in a
+-- 2016-2018 marketplace window. Cannot resolve an effect this small.
+-- REPORTED AS: directional signal, not a finding.
