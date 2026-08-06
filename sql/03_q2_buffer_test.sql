@@ -1,0 +1,10 @@
+-- Q2: Better logistics, or more honest estimates?
+-- RESULT (run 2026-08-06):
+--   avg actual lead time    12.5 days   (median 10, p90 23)
+--   avg promised lead time  24.4 days   (median 24)
+--   avg variance           -11.9 days  -> Olist ALREADY pads heavily
+--   late now: 6,534 | with +3d buffer: 4,664 | with +7d buffer: 2,862
+-- Finding: buffer does NOT fix this. +3 days rescues only 29% of late orders;
+-- 44% are >7 days late against an already-doubled promise.
+-- This is a TAIL problem (a few catastrophic orders), not a calibration problem.
+-- Padding further would degrade the offer for the 90% who get orders in ~10 days.
