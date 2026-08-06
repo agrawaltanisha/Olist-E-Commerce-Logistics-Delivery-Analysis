@@ -1,0 +1,10 @@
+-- Q3: Which sellers cause the lateness?
+-- RESULT (run 2026-08-06): NULL FINDING — lateness is NOT concentrated.
+--   Worst seller (n>=50 orders) is only 30.1% late; baseline is 6.8%.
+--   Cumulative share of all 6,547 late orders:
+--     top 10 sellers -> 15.7% | top 50 -> 38.1% | top 100 -> 50.5% | top 500 -> 84.7%
+--   Need 100 of ~3,000 sellers to reach half of late orders. No Pareto concentration.
+-- The original hypothesis (a few bad sellers own the problem) is REJECTED.
+-- Worst-rate sellers avg 13-26 day lead times, but late orders overall avg 33.9 —
+-- so these sellers are mildly slow, not the source of the extreme tail.
+-- Next hypothesis: geography.
