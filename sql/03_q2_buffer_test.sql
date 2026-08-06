@@ -8,3 +8,9 @@
 -- 44% are >7 days late against an already-doubled promise.
 -- This is a TAIL problem (a few catastrophic orders), not a calibration problem.
 -- Padding further would degrade the offer for the 90% who get orders in ~10 days.
+
+-- TAIL CONFIRMATION:
+--   p95 = 29 days, p99 = 46 days, max = 210 days
+--   on-time orders avg 10.9 days (n=89,936)
+--   late orders    avg 33.9 days (n=6,534)  -> 3.1x longer
+-- Late orders are structurally different, not marginally slower.
