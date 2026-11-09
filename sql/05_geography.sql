@@ -18,3 +18,17 @@
 -- explained by the estimate, the seller, or the destination. They are operational
 -- exceptions (avg 33.9d vs 10.9d norm). Recommendation: exception detection —
 -- flag orders that go silent past day ~20 and intervene before the review lands.
+
+-- Delivery performance and promise calibration by customer state.
+-- avg_buffer_used = actual minus promised days (negative = arrived early).
+SELECT
+    customer_state,
+    COUNT(*)                                                                   AS orders,
+    ROUND(AVG(actual_lead_time), 1)                                            AS avg_actual_days,
+    ROUND(AVG(promised_lead_time), 1)                                          AS avg_promised_days,
+    ROUND(AVG(days_vs_promise), 1)                                             AS avg_buffer_used,
+    ROUND(100.0 * COUNT(*) FILTER (WHERE days_vs_promise > 0) / COUNT(*), 1)   AS pct_late,
+    ROUND(AVG(review_score), 2)                                                AS avg_review
+FROM v_order_delivery
+GROUP BY customer_state
+ORDER BY avg_actual_days DESC;

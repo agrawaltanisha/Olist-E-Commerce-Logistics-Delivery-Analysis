@@ -10,3 +10,13 @@
 -- Finding: lead time rose only ~40% (11.7 -> 16.2d) while late rate quadrupled.
 -- A modest slowdown blows through a fixed promised date (see Q1).
 -- April recovery at unchanged volume => operational failure, not a capacity ceiling.
+
+SELECT
+    DATE_TRUNC('month', order_purchase_timestamp)::date                        AS month,
+    COUNT(*)                                                                   AS orders,
+    ROUND(100.0 * COUNT(*) FILTER (WHERE days_vs_promise > 0) / COUNT(*), 1)   AS pct_late,
+    ROUND(AVG(actual_lead_time), 1)                                            AS avg_lead_time,
+    ROUND(AVG(review_score), 2)                                                AS avg_review
+FROM v_order_delivery
+GROUP BY month
+ORDER BY month;
